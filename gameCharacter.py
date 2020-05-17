@@ -52,6 +52,8 @@ class gameCharacter(object):
         self.frames_since_dodge = intToSet
     def incrementFramesSinceDodge(self):
         self.frames_since_dodge = self.frames_since_dodge + 1
+    def getCharacterName(self):
+        return self.character_name
     def __del__(self):
         self._registry.remove(self)
     #Methods to change the stats of a character

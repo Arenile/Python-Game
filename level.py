@@ -10,6 +10,7 @@ class Level:
         self.level_image = self.level_image.convert()
         self.level_size = self.level_image.get_size()
         self.level_position = rel_pos
+        self.characterList = []
 
     def renderLevel(self): #Returns the level art for rendering
         return self.level_image
@@ -25,6 +26,12 @@ class Level:
     
     def modLevelPosition(self, xposmod, yposmod): #Modifies the level position by defined amount relative to the screen
         self.level_position = (self.level_position[0] + xposmod, self.level_position[1] + yposmod)
+    
+    def addCharacter(self, characterToAdd: gameCharacter.gameCharacter):
+        self.characterList.append(characterToAdd)
+    
+    def getCharacterList(self):
+        return self.characterList
     
     def __del__(self):
         self._registry.remove(self)
